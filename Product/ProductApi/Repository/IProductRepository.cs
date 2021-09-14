@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ProductApi.Repository
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         IEnumerable<Product> GetProducts();
         Product GetProductById(int Id);

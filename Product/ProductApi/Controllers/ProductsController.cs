@@ -12,7 +12,7 @@ namespace ProductApi.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IProductRepository productRepository;
-        ProductsController(IProductRepository productRepository)
+        public ProductsController(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
