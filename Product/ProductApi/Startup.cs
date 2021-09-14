@@ -29,6 +29,7 @@ namespace ProductApi
 
             //Add the DbContext service
             services.AddDbContext<ProductContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductContext")));
+            //Add to register IProductRepository, ProductRepository 
             services.AddTransient<IProductRepository, ProductRepository>();
         }
 
