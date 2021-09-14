@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProductApi.DbContexts;
+using ProductApi.Repository;
 
 namespace ProductApi
 {
@@ -27,7 +28,8 @@ namespace ProductApi
             services.AddControllers();
 
             //Add the DbContext service
-            services.AddDbContext<ProductContext>(options => options.UseSqlServer(Configuration.GetConnectionString("")));
+            services.AddDbContext<ProductContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ProductContext")));
+            services.AddTransient<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
