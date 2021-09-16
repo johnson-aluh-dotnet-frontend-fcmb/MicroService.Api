@@ -18,7 +18,7 @@ namespace Gateway.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public async void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -34,7 +34,7 @@ namespace Gateway.API
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
-            app.UseOcelot();
+            await app.UseOcelot();
         }
     }
 }
