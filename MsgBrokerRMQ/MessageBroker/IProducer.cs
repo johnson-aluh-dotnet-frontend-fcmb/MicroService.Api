@@ -2,6 +2,6 @@
 {
     public interface IOroducer
     {
-        void SendMessage<T>(T message);
+        void ProduceMessage<T>(T message);
     }
 }

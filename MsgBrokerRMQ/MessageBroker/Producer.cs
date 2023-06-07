@@ -6,7 +6,7 @@ namespace Gateway.API.MessageBroker
 {
     public class Producer// : IProducer
     {
-        public void SendMessage<T>(T message)
+        public void ProduceMessage<T>(T message)
         {
             //var factory = new ConnectionFactory { HostName = "localhost:15672/" };
             var factory = new ConnectionFactory { HostName = "localhost" };
@@ -15,11 +15,7 @@ namespace Gateway.API.MessageBroker
 
             //channel.QueueDeclare("orders");
 
-            channel.QueueDeclare(queue: "orders",
-                                     durable: false,
-                                     exclusive: false,
-                                     autoDelete: false,
-                                     arguments: null);
+            channel.QueueDeclare(queue: "orders", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
             var json = JsonConvert.SerializeObject(message);
             var body = Encoding.UTF8.GetBytes(json);
